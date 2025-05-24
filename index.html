@@ -6,122 +6,56 @@
   <title>Borne - Chez Caro</title>
   <style>
     * { box-sizing: border-box; }
-    #panier {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  width: 100vw;
-  max-width: 100vw;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.12);
-  background: #fff;
-  padding: 12px 20px;
-  /* ...autres styles */
-}
-
-@media (max-width: 900px) {
-  .cart {
-    width: 100vw;
-    left: 0;
-    right: 0;
-    top: unset;
-    bottom: 0;
-    height: auto;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  }
-  /* ... */
-}
-
-
-
-
-    /* --- Rendre tout responsive de base --- */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  box-sizing: border-box;
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* --- Mobile First --- */
-.container, main, section {
-  width: 96%;
-  margin: auto;
-}
-
-/* --- Tablette (iPad ~ 768px) --- */
-@media (min-width: 600px) {
-  .container, main, section {
-    width: 90%;
-  }
-}
-
-/* --- Desktop (ordi) --- */
-@media (min-width: 900px) {
-  .container, main, section {
-    width: 70%;
-    max-width: 1200px;
-  }
-}
-
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f3f3f3;
       min-height: 100vh;
       width: 100vw;
+      position: relative;
     }
     header {
-  min-height: 220px;
-  width: 100vw;
-  left: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Animated Gradient */
-  background: linear-gradient(120deg, #1e3c72, #2a5298, purple, #1e3c72);
-  background-size: 300% 300%;
-  animation: gradientMove 8s ease-in-out infinite;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
+      min-height: 220px;
+      width: 100vw;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, #1e3c72, #2a5298, purple, #1e3c72);
+      background-size: 300% 300%;
+      animation: gradientMove 8s ease-in-out infinite;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
     @keyframes gradientMove {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
     .header-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* Tu peux mettre ici un transform si tu veux décaler */
+    }
     .header-logo {
-  max-height: 110px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  filter: drop-shadow(0 3px 10px rgba(30,60,114,0.20));
-}
+      max-height: 110px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      filter: drop-shadow(0 3px 10px rgba(30,60,114,0.20));
+    }
     .bienvenue {
       font-size: 2.2rem;
       font-weight: bold;
       margin-bottom: 0.4rem;
       margin-top: 0;
       letter-spacing: 1px;
-      /* Subtle entrance animation */
       opacity: 0;
       transform: scale(0.96) translateY(10px);
       animation: bienvenueFadeIn 1.3s cubic-bezier(.44,1.6,.5,1) 0.2s forwards;
@@ -150,73 +84,58 @@ img, video {
       }
     }
     main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 2rem;
-}
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
-  padding: 1rem;
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 2.5rem;
-}
-
-.category {
-  position: relative;
-  height: 200px;
-  min-width: 240px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 14px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.25s ease, filter 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-}
-
-.category::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(2px);
-  z-index: 1;
-}
-
-@media (max-width: 900px) {
-  main {
-    padding-bottom: 140px !important;
-  }
-}
-
-
-.category span {
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-align: center;
-  padding: 0.4em 1em;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.5);
-}
-
-
-
-
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 2rem;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      padding: 1rem;
+      width: 100%;
+      max-width: 1000px;
+      margin-top: 2.5rem;
+    }
+    .category {
+      position: relative;
+      height: 200px;
+      min-width: 240px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, filter 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    .category::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+    .category span {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-align: center;
+      padding: 0.4em 1em;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.5);
+    }
     .items {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       padding: 1rem;
-      margin-right: 320px;
       width: 100%;
       max-width: 900px;
     }
@@ -239,24 +158,89 @@ img, video {
       border-radius: 5px;
       cursor: pointer;
     }
-    .cart {
+
+    /* ---- Bulle flottante du panier ---- */
+    #cart-fab {
       position: fixed;
-      right: 0;
-      top: 0;
-      width: 300px;
-      background: white;
-      height: 100%;
-      padding: 1rem;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      right: 28px;
+      bottom: 28px;
+      width: 58px;
+      height: 58px;
+      background: #28a745;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 12000;
+      cursor: pointer;
+      transition: background 0.2s;
     }
-    .cart h3 { margin-top: 0; }
-    .cart ul { list-style: none; padding: 0; }
-    .cart li {
+    #cart-fab svg {
+      pointer-events: none;
+      width: 32px;
+      height: 32px;
+    }
+    #cart-fab:hover {
+      background: #218838;
+    }
+    #cart-count {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #dc3545;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-weight: bold;
+      pointer-events: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+    }
+
+    /* --- Panier drawer responsive --- */
+    #cartPanel {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      max-width: 100vw;
+      background: #fff;
+      z-index: 15000;
+      box-shadow: 0 -2px 18px rgba(0,0,0,0.24);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      transition: transform 0.33s cubic-bezier(.8,.2,.1,1);
+      transform: translateY(110%);
+      will-change: transform;
+      padding: 1.3rem 1.2rem 1.8rem 1.2rem;
+    }
+    #cartPanel.open {
+      transform: translateY(0%);
+    }
+    #cartPanel .close-cart {
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      background: none;
+      border: none;
+      font-size: 2.1rem;
+      color: #dc3545;
+      cursor: pointer;
+      z-index: 16000;
+    }
+    #cartPanel h3 { margin-top: 0.7rem; }
+    #cartPanel ul { list-style: none; padding: 0; margin: 0; }
+    #cartPanel li {
       margin: 0.5rem 0;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 2px;
     }
-    .cart button {
+    #cartPanel button[type="submit"],
+    #cartPanel .reset-cart {
       background: #28a745;
       color: white;
       border: none;
@@ -265,79 +249,49 @@ img, video {
       cursor: pointer;
       font-size: 1rem;
       font-weight: bold;
-      box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+      box-shadow: 0 4px 10px rgba(40, 167, 69, 0.14);
       transition: background 0.3s, transform 0.1s;
-      animation: pulse 2s infinite;
       width: 100%;
       margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      animation: pulse 2s infinite;
     }
-    .cart button:hover {
+    #cartPanel button[type="submit"]:hover {
       background: #218838;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
-    .cart button:active {
-      transform: scale(0.95);
-      box-shadow: 0 2px 6px rgba(40, 167, 69, 0.4);
+    #cartPanel .reset-cart {
+      background: #dc3545;
+      margin-top: 0;
+      animation: none;
+    }
+    #cartPanel .reset-cart:hover {
+      background: #a71d2a;
+    }
+
+    @media (min-width: 900px) {
+      #cartPanel {
+        left: unset;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 350px;
+        max-width: 100vw;
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform 0.33s;
+        box-shadow: -2px 0 18px rgba(0,0,0,0.12);
+      }
+      #cartPanel.open {
+        transform: translateX(0%);
+      }
+      #cartPanel .close-cart { display: none; }
     }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.04); }
       100% { transform: scale(1); }
     }
-    @media (max-width: 900px) {
-      .categories, .items {
-        margin-right: 0;
-        max-width: 100vw;
-      }
-      .cart {
-        width: 100vw;
-        left: 0;
-        right: 0;
-        top: unset;
-        bottom: 0;
-        height: auto;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      }
-      .option-block input[type="checkbox"] {
-  transform: scale(1.5);
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.option-block label {
-  display: flex;
-  align-items: center;
-  font-size: 1.05rem;
-  margin: 0.25rem 0;
-  color: #222;
-  user-select: none;
-}
-
-
-  @media (max-width: 900px) {
-  main,
-  .items,
-  .categories,
-  .container,
-  body {
-    padding-bottom: 160px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  main {
-    padding-bottom: 200px !important; /* Mets la valeur en pixels supérieure à la hauteur maximale de ton panier */
-  }
-  .items {
-    padding-bottom: 80px !important;  /* Optionnel pour renforcer si tes options sont dans .items */
-  }
-}
-
-
-}
-
-
-    
   </style>
 </head>
 <body>
@@ -351,15 +305,24 @@ img, video {
       <main>
         <div class="categories" id="categories"></div>
         <div class="items" id="items"></div>
+        <!-- Bulle caddie -->
+        <button id="cart-fab" onclick="toggleCart()" aria-label="Ouvrir le panier">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334 16h9.332c.828 0 1.543-.531 1.836-1.326l3.497-8.857A1 1 0 0 0 21 5H6.217l-.94-2.342A1 1 0 0 0 4.382 2H2v2h1.618l3.6 9.001-1.35 2.45C4.488 16.029 5.473 18 7.334 18z" fill="#fff"/>
+          </svg>
+          <span id="cart-count">0</span>
+        </button>
       </main>      
-  <aside class="cart">
-    <h3>Mon Panier</h3>
-    <ul id="cartList"></ul>
-    <p><strong>Total :</strong> <span id="total">0.00€</span></p>
-    <button onclick="validerCommande()">Validear la commande</button>
-    <button onclick="resetCart()" style="margin-top: 0.5rem; background: red;">Vider le panier</button>
 
-  </aside>
+      <!-- PANIER (drawer) -->
+      <aside id="cartPanel">
+        <button class="close-cart" onclick="toggleCart()" aria-label="Fermer le panier">&times;</button>
+        <h3>Mon Panier</h3>
+        <ul id="cartList"></ul>
+        <p><strong>Total :</strong> <span id="total">0.00€</span></p>
+        <button type="submit" onclick="validerCommande()">Valider la commande</button>
+        <button class="reset-cart" onclick="resetCart()">Vider le panier</button>
+      </aside>
 
   <script>
 const categories = [
@@ -372,9 +335,7 @@ const categories = [
   { name: 'Sauces', image: 'https://bon-et-bon.elior.fr/sites/bon-et-bon.elior.fr/files/2022-10/Elior%20-%20Sauces%20ados.jpg' },
   { name: 'Salades', image: 'https://files.meilleurduchef.com/mdc/photo/recette/salade-chevre-chaud/salade-chevre-chaud-1200.jpg' },
   { name: 'Tacos', image: 'https://img.cuisineaz.com/660x495/2019/04/17/i146583-tacos-poulet-curry.webp' }
-
 ];
-
 
     const items = {
       'Burgers': [
@@ -402,7 +363,6 @@ const categories = [
         { name: 'Nuggets x6', price: 4 },
       ],
 'Tacos': [
-    
   {
     name: 'Tacos 1 Viande',
     price: 4,
@@ -410,32 +370,31 @@ const categories = [
     maxSauce: 1,
     americainOption: true,
     options: [
-  { name: 'Poulet', price: 0 },
-  { name: 'Kebab', price: 0 },
-  { name: 'Merguez', price: 0 },
-  { name: 'Tenders', price: 0 },
-  { name: 'Steak', price: 0 }
-],
-
+      { name: 'Poulet', price: 0 },
+      { name: 'Kebab', price: 0 },
+      { name: 'Merguez', price: 0 },
+      { name: 'Tenders', price: 0 },
+      { name: 'Steak', price: 0 }
+    ],
     sauces: [
-    { name: 'Algérienne', price: 0 },
-  { name: 'Américaine', price: 0 },
-  { name: 'Andalouse', price: 0 },
-  { name: 'Barbecue', price: 0 },
-  { name: 'Burger', price: 0 },
-  { name: 'Chti', price: 0},
-  { name: 'Cocktail', price: 0 },
-  { name: 'Hannibal', price: 0 },
-  { name: 'Harissa', price: 0 },
-  { name: 'Ketchup', price: 0 },
-  { name: 'Mayonnaise', price: 0 },
-  { name: 'Moutarde', price: 0 },
-  { name: 'Oignon', price: 0 },
-  { name: 'Pita', price: 0},
-  { name: 'Poivre', price: 0 },
-  { name: 'Provençale', price: 0 },
-  { name: 'Samouraï', price: 0 },
-  { name: 'Maroilles', price: 2 }
+      { name: 'Algérienne', price: 0 },
+      { name: 'Américaine', price: 0 },
+      { name: 'Andalouse', price: 0 },
+      { name: 'Barbecue', price: 0 },
+      { name: 'Burger', price: 0 },
+      { name: 'Chti', price: 0},
+      { name: 'Cocktail', price: 0 },
+      { name: 'Hannibal', price: 0 },
+      { name: 'Harissa', price: 0 },
+      { name: 'Ketchup', price: 0 },
+      { name: 'Mayonnaise', price: 0 },
+      { name: 'Moutarde', price: 0 },
+      { name: 'Oignon', price: 0 },
+      { name: 'Pita', price: 0},
+      { name: 'Poivre', price: 0 },
+      { name: 'Provençale', price: 0 },
+      { name: 'Samouraï', price: 0 },
+      { name: 'Maroilles', price: 2 }
     ]
   },
   {
@@ -445,38 +404,34 @@ const categories = [
     maxSauce: 1,
     americainOption: true,
     options: [
-  { name: 'Poulet', price: 0 },
-  { name: 'Kebab', price: 0 },
-  { name: 'Merguez', price: 0 },
-  { name: 'Tenders', price: 0 },
-  { name: 'Steak', price: 0 }
-],
-
+      { name: 'Poulet', price: 0 },
+      { name: 'Kebab', price: 0 },
+      { name: 'Merguez', price: 0 },
+      { name: 'Tenders', price: 0 },
+      { name: 'Steak', price: 0 }
+    ],
     sauces: [
-    { name: 'Algérienne', price: 0 },
-  { name: 'Américaine', price: 0 },
-  { name: 'Andalouse', price: 0 },
-  { name: 'Barbecue', price: 0 },
-  { name: 'Burger', price: 0 },
-  { name: 'Chti', price: 0 },
-  { name: 'Cocktail', price: 0 },
-  { name: 'Hannibal', price: 0 },
-  { name: 'Harissa', price: 0 },
-  { name: 'Ketchup', price: 0 },
-  { name: 'Mayonnaise', price: 0 },
-  { name: 'Moutarde', price: 0 },
-  { name: 'Oignon', price: 0 },
-  { name: 'Pita', price: 0 },
-  { name: 'Poivre', price: 0 },
-  { name: 'Provençale', price: 0.},
-  { name: 'Samouraï', price: 0  },
-  { name: 'Maroilles', price: 2 }
+      { name: 'Algérienne', price: 0 },
+      { name: 'Américaine', price: 0 },
+      { name: 'Andalouse', price: 0 },
+      { name: 'Barbecue', price: 0 },
+      { name: 'Burger', price: 0 },
+      { name: 'Chti', price: 0 },
+      { name: 'Cocktail', price: 0 },
+      { name: 'Hannibal', price: 0 },
+      { name: 'Harissa', price: 0 },
+      { name: 'Ketchup', price: 0 },
+      { name: 'Mayonnaise', price: 0 },
+      { name: 'Moutarde', price: 0 },
+      { name: 'Oignon', price: 0 },
+      { name: 'Pita', price: 0 },
+      { name: 'Poivre', price: 0 },
+      { name: 'Provençale', price: 0.},
+      { name: 'Samouraï', price: 0  },
+      { name: 'Maroilles', price: 2 }
     ]
   }
 ],
-
-
-
       'Fraîcheurs': [
         { name: 'Emincé de Poulet', price: 4 },
         { name: 'Filet Américain', price: 4 },
@@ -517,8 +472,12 @@ const categories = [
     const itemsContainer = document.getElementById('items');
     const cartList = document.getElementById('cartList');
     const totalDisplay = document.getElementById('total');
+    const cartFab = document.getElementById('cart-fab');
+    const cartPanel = document.getElementById('cartPanel');
+    const cartCount = document.getElementById('cart-count');
     let cart = [];
 
+    // Génération des catégories
     categories.forEach(cat => {
       const div = document.createElement('div');
       div.className = 'category';
@@ -529,253 +488,241 @@ const categories = [
     });
 
     function showItems(category) {
-  itemsContainer.innerHTML = '';
-  items[category].forEach((item, index) => {
-    const card = document.createElement('div');
-    card.className = 'item';
+      itemsContainer.innerHTML = '';
+      items[category].forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'item';
 
-    // Init blocs HTML
-    let optionsHTML = '';
-    let sauceHTML = '';
+        let optionsHTML = '';
+        let sauceHTML = '';
 
-    // Viandes
-    if (item.options) {
-      optionsHTML = `
-        <div class="option-block" data-max="${item.maxOptions || 99}" data-category="${category}" data-index="${index}">
-          <small style="display:block; margin-bottom: 0.4rem; color: #444;" id="option-count-${category}-${index}">
-            Sélectionnez jusqu'à ${item.maxOptions || '∞'} option${(item.maxOptions || 99) > 1 ? 's' : ''}
-          </small>
-      `;
-      item.options.forEach((opt, i) => {
-        const optId = `opt-${category}-${index}-${i}`;
-        optionsHTML += `
-          <label>
-            <input type="checkbox" class="option-checkbox"
-              id="${optId}"
-              data-name="${opt.name}"
-              data-price="${opt.price}"
-              data-group="opt-${category}-${index}"
-              data-category="${category}"
-              data-index="${index}"
-              onchange="handleDynamicOptions(this)" />
-            ${opt.name}${opt.price > 0 ? ` (+${opt.price.toFixed(2)}€)` : ''}
-          </label>`;
+        if (item.options) {
+          optionsHTML = `
+            <div class="option-block" data-max="${item.maxOptions || 99}" data-category="${category}" data-index="${index}">
+              <small style="display:block; margin-bottom: 0.4rem; color: #444;" id="option-count-${category}-${index}">
+                Sélectionnez jusqu'à ${item.maxOptions || '∞'} option${(item.maxOptions || 99) > 1 ? 's' : ''}
+              </small>
+          `;
+          item.options.forEach((opt, i) => {
+            const optId = `opt-${category}-${index}-${i}`;
+            optionsHTML += `
+              <label>
+                <input type="checkbox" class="option-checkbox"
+                  id="${optId}"
+                  data-name="${opt.name}"
+                  data-price="${opt.price}"
+                  data-group="opt-${category}-${index}"
+                  data-category="${category}"
+                  data-index="${index}"
+                  onchange="handleDynamicOptions(this)" />
+                ${opt.name}${opt.price > 0 ? ` (+${opt.price.toFixed(2)}€)` : ''}
+              </label>`;
+          });
+          optionsHTML += `</div>`;
+        }
+
+        if (item.sauces) {
+          const sauceGroup = `sauce-${category}-${index}`;
+          sauceHTML += `<div class="sauce-block" data-max="${item.maxSauce || 1}" style="margin-top: 1rem;">`;
+          sauceHTML += `<small id="sauce-count-${category}-${index}" style="display:block; margin-bottom:0.4rem; color:#444;">Choisissez 1 sauce (0/1)</small>`;
+          item.sauces.forEach((sauce, i) => {
+            const sid = `sauce-${category}-${index}-${i}`;
+            sauceHTML += `
+              <label>
+                <input type="checkbox"
+                  class="sauce-checkbox"
+                  id="${sid}"
+                  data-name="${sauce.name}"
+                  data-price="${sauce.price}"
+                  data-group="${sauceGroup}"
+                  data-category="${category}"
+                  data-index="${index}"
+                  onchange="handleDynamicSauce(this)" />
+                ${sauce.name}
+              </label>`;
+          });
+          sauceHTML += `</div>`;
+          if (item.americainOption) {
+            sauceHTML += `
+              <div class="americain-block" style="margin-top: 1rem;">
+                <label>
+                  <input type="checkbox"
+                    class="americain-checkbox"
+                    id="americain-${category}-${index}"
+                    data-price="2"
+                    data-category="${category}"
+                    data-index="${index}" />
+                  En américain ? <br/><small>(avec frites en dehors du tacos en plus de celles à l'intérieur) +2€</small>
+                </label>
+              </div>
+            `;
+          }
+        }
+
+        card.innerHTML = `
+          <h4>${item.name}</h4>
+          <p>${item.price.toFixed(2)}€</p>
+          ${optionsHTML}
+          ${sauceHTML}
+          <button data-category="${category}" data-index="${index}" onclick="handleAddClick(event)">Ajouter</button>
+        `;
+        itemsContainer.appendChild(card);
       });
-      optionsHTML += `</div>`;
     }
 
-    // Sauces
-    if (item.sauces) {
-      const sauceGroup = `sauce-${category}-${index}`;
-      sauceHTML += `<div class="sauce-block" data-max="${item.maxSauce || 1}" style="margin-top: 1rem;">`;
-      sauceHTML += `<small id="sauce-count-${category}-${index}" style="display:block; margin-bottom:0.4rem; color:#444;">Choisissez 1 sauce (0/1)</small>`;
-      item.sauces.forEach((sauce, i) => {
-        const sid = `sauce-${category}-${index}-${i}`;
-        sauceHTML += `
-          <label>
-            <input type="checkbox"
-              class="sauce-checkbox"
-              id="${sid}"
-              data-name="${sauce.name}"
-              data-price="${sauce.price}"
-              data-group="${sauceGroup}"
-              data-category="${category}"
-              data-index="${index}"
-              onchange="handleDynamicSauce(this)" />
-            ${sauce.name}
-          </label>`;
-      });
-      sauceHTML += `</div>`;
-      // Option Américain
-if (item.americainOption) {
-  sauceHTML += `
-    <div class="americain-block" style="margin-top: 1rem;">
-      <label>
-        <input type="checkbox"
-          class="americain-checkbox"
-          id="americain-${category}-${index}"
-          data-price="2"
-          data-category="${category}"
-          data-index="${index}" />
-        En américain ? <br/><small>(avec frites en dehors du tacos en plus de celles à l'intérieur) +2€</small>
-      </label>
-    </div>
-  `;
-}
+    function handleAddClick(event) {
+      const button = event.target;
+      const category = button.dataset.category;
+      const itemIndex = parseInt(button.dataset.index);
+      const item = items[category]?.[itemIndex];
+      if (!item) return alert("Erreur : article introuvable.");
 
+      let selectedOptions = [];
+      let selectedSauce = null;
+      let isAmericain = false;
+      let extraPrice = 0;
+
+      if (item.options) {
+        item.options.forEach((opt, i) => {
+          const checkbox = document.getElementById(`opt-${category}-${itemIndex}-${i}`);
+          if (checkbox?.checked) {
+            selectedOptions.push(opt.name);
+            extraPrice += parseFloat(opt.price);
+          }
+        });
+      }
+      if (item.sauces) {
+        item.sauces.forEach((sauce, i) => {
+          const sid = `sauce-${category}-${itemIndex}-${i}`;
+          const checkbox = document.getElementById(sid);
+          if (checkbox?.checked) {
+            selectedSauce = sauce.name;
+            extraPrice += parseFloat(sauce.price);
+          }
+        });
+      }
+      const americainInput = document.getElementById(`americain-${category}-${itemIndex}`);
+      if (americainInput?.checked) {
+        isAmericain = true;
+        extraPrice += parseFloat(americainInput.dataset.price);
+      }
+      const fullName =
+        item.name +
+        (selectedOptions.length ? ` (${selectedOptions.join(', ')})` : '') +
+        (selectedSauce ? ` - ${selectedSauce}` : '') +
+        (isAmericain ? ` + Américain` : '');
+      const finalPrice = item.price + extraPrice;
+      addToCart(fullName, finalPrice);
     }
 
-    card.innerHTML = `
-      <h4>${item.name}</h4>
-      <p>${item.price.toFixed(2)}€</p>
-      ${optionsHTML}
-      ${sauceHTML}
-<button data-category="${category}" data-index="${index}" onclick="handleAddClick(event)">Ajouter</button>
-
-
-
-    `;
-    itemsContainer.appendChild(card);
-  });
-}
-
-
-function handleAddClick(event) {
-  const button = event.target;
-
-  // 1. Lecture sécurisée des données
-  const category = button.dataset.category;
-  const itemIndex = parseInt(button.dataset.index);
-  const item = items[category]?.[itemIndex];
-  if (!item) return alert("Erreur : article introuvable.");
-
-  let selectedOptions = [];
-  let selectedSauce = null;
-  let isAmericain = false;
-  let extraPrice = 0;
-
-  // 2. Viandes
-  if (item.options) {
-    item.options.forEach((opt, i) => {
-      const checkbox = document.getElementById(`opt-${category}-${itemIndex}-${i}`);
-      if (checkbox?.checked) {
-        selectedOptions.push(opt.name);
-        extraPrice += parseFloat(opt.price);
+    function handleOptionLimit(checkbox) {
+      const group = checkbox.getAttribute('data-group');
+      const all = document.querySelectorAll(`input[data-group="${group}"]`);
+      const container = checkbox.closest('.option-block');
+      const max = parseInt(container.getAttribute('data-max')) || 99;
+      const checked = Array.from(all).filter(c => c.checked);
+      if (checked.length > max) {
+        checkbox.checked = false;
+        alert(`Vous pouvez sélectionner au maximum ${max} option${max > 1 ? 's' : ''}.`);
       }
-    });
-  }
-
-  // 3. Sauces
-  if (item.sauces) {
-    item.sauces.forEach((sauce, i) => {
-      const sid = `sauce-${category}-${itemIndex}-${i}`;
-      const checkbox = document.getElementById(sid);
-      if (checkbox?.checked) {
-        selectedSauce = sauce.name;
-        extraPrice += parseFloat(sauce.price);
+    }
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+    function resetCart() {
+      if (confirm("Vider le panier ?")) {
+        cart = [];
+        updateCart();
       }
-    });
-  }
-
-  // 4. Option Américain
-  const americainInput = document.getElementById(`americain-${category}-${itemIndex}`);
-  if (americainInput?.checked) {
-    isAmericain = true;
-    extraPrice += parseFloat(americainInput.dataset.price);
-  }
-
-  // 5. Construction du nom affiché
-  const fullName =
-    item.name +
-    (selectedOptions.length ? ` (${selectedOptions.join(', ')})` : '') +
-    (selectedSauce ? ` - ${selectedSauce}` : '') +
-    (isAmericain ? ` + Américain` : '');
-
-  const finalPrice = item.price + extraPrice;
-
-  // 6. Ajout au panier
-  addToCart(fullName, finalPrice);
-}
-
-
-
-function handleOptionLimit(checkbox) {
-  const group = checkbox.getAttribute('data-group');
-  const all = document.querySelectorAll(`input[data-group="${group}"]`);
-  const container = checkbox.closest('.option-block');
-  const max = parseInt(container.getAttribute('data-max')) || 99;
-
-  const checked = Array.from(all).filter(c => c.checked);
-  if (checked.length > max) {
-    checkbox.checked = false;
-    alert(`Vous pouvez sélectionner au maximum ${max} option${max > 1 ? 's' : ''}.`);
-  }
-}
-function addToCart(name, price) {
-  cart.push({ name, price });
-  updateCart();
-}
-
-function resetCart() {
-  if (confirm("Vider le panier ?")) {
-    cart = [];
-    updateCart();
-  }
-}
-
-
-function updateCart() {
-  cartList.innerHTML = '';
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.price;
-
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <span>${item.name} - ${item.price.toFixed(2)}€</span>
-      <button onclick="removeItemFromCart(${index})" style="background:none; border:none; color:#dc3545; font-weight:bold; font-size:1.1rem; cursor:pointer;">&times;</button>
-    `;
-    cartList.appendChild(li);
-  });
-
-  totalDisplay.textContent = `${total.toFixed(2)}€`;
-}
-
-
+    }
+    function updateCart() {
+      cartList.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${item.name} - ${item.price.toFixed(2)}€</span>
+          <button onclick="removeItemFromCart(${index})" style="background:none; border:none; color:#dc3545; font-weight:bold; font-size:1.1rem; cursor:pointer;">&times;</button>
+        `;
+        cartList.appendChild(li);
+      });
+      totalDisplay.textContent = `${total.toFixed(2)}€`;
+      // Mettre à jour la bulle
+      cartCount.textContent = cart.length;
+    }
     function validerCommande() {
       if (cart.length === 0) return alert('Panier vide !');
       alert('Commande validée ! Merci.');
       cart = [];
       updateCart();
+      toggleCart(false);
     }
-
     function removeItemFromCart(index) {
-  cart.splice(index, 1); // supprime l’élément à la position `index`
-  updateCart();
-}
-
-
-    function handleDynamicOptions(checkbox) {
-  const group = checkbox.dataset.group;
-  const allCheckboxes = document.querySelectorAll(`input[data-group="${group}"]`);
-  const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
-  const max = parseInt(checkbox.closest('.option-block').dataset.max) || 99;
-
-  // Update the text indicator
-  const index = checkbox.dataset.index;
-  const category = checkbox.dataset.category;
-  const countDisplay = document.getElementById(`option-count-${category}-${index}`);
-  if (countDisplay) {
-    countDisplay.textContent = `Sélectionnez jusqu'à ${max} option${max > 1 ? 's' : ''} (${checkedCount}/${max})`;
-  }
-
-  // Disable unchecked checkboxes if limit reached
-  allCheckboxes.forEach(cb => {
-    if (!cb.checked) {
-      cb.disabled = checkedCount >= max;
+      cart.splice(index, 1);
+      updateCart();
     }
-  });
-}
+    function handleDynamicOptions(checkbox) {
+      const group = checkbox.dataset.group;
+      const allCheckboxes = document.querySelectorAll(`input[data-group="${group}"]`);
+      const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+      const max = parseInt(checkbox.closest('.option-block').dataset.max) || 99;
+      const index = checkbox.dataset.index;
+      const category = checkbox.dataset.category;
+      const countDisplay = document.getElementById(`option-count-${category}-${index}`);
+      if (countDisplay) {
+        countDisplay.textContent = `Sélectionnez jusqu'à ${max} option${max > 1 ? 's' : ''} (${checkedCount}/${max})`;
+      }
+      allCheckboxes.forEach(cb => {
+        if (!cb.checked) {
+          cb.disabled = checkedCount >= max;
+        }
+      });
+    }
+    function handleDynamicSauce(checkbox) {
+      const group = checkbox.dataset.group;
+      const allCheckboxes = document.querySelectorAll(`input[data-group="${group}"]`);
+      const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+      const max = 1;
+      const category = checkbox.dataset.category;
+      const index = checkbox.dataset.index;
+      const counter = document.getElementById(`sauce-count-${category}-${index}`);
+      if (counter) counter.textContent = `Choisissez 1 sauce (${checkedCount}/1)`;
+      allCheckboxes.forEach(cb => {
+        if (!cb.checked) cb.disabled = checkedCount >= max;
+      });
+    }
 
-function handleDynamicSauce(checkbox) {
-  const group = checkbox.dataset.group;
-  const allCheckboxes = document.querySelectorAll(`input[data-group="${group}"]`);
-  const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
-  const max = 1;
+    // --- PANIER FLUIDE ---
+    function toggleCart(forceOpen) {
+      if(typeof forceOpen !== "undefined"){
+        if(forceOpen){
+          cartPanel.classList.add('open');
+        } else {
+          cartPanel.classList.remove('open');
+        }
+      } else {
+        cartPanel.classList.toggle('open');
+      }
+    }
+    // Fermer le drawer panier si click dehors (sur mobile)
+    document.addEventListener('mousedown', function(e) {
+      if(cartPanel.classList.contains('open')) {
+        if (!cartPanel.contains(e.target) && !cartFab.contains(e.target)) {
+          cartPanel.classList.remove('open');
+        }
+      }
+    });
+    // Fermer panier avec "ESC"
+    document.addEventListener('keydown', function(e) {
+      if(e.key === "Escape") {
+        cartPanel.classList.remove('open');
+      }
+    });
 
-  // Affichage du compteur
-  const category = checkbox.dataset.category;
-  const index = checkbox.dataset.index;
-  const counter = document.getElementById(`sauce-count-${category}-${index}`);
-  if (counter) counter.textContent = `Choisissez 1 sauce (${checkedCount}/1)`;
-
-  allCheckboxes.forEach(cb => {
-    if (!cb.checked) cb.disabled = checkedCount >= max;
-  });
-}
-
-
+    // Init affichage
+    updateCart();
   </script>
 </body>
 </html>

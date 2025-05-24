@@ -3,9 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Borne - Chez Caroo</title>
+  <title>Borne - Chez Caro</title>
   <style>
     * { box-sizing: border-box; }
+    #panier {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 100vw;
+  max-width: 100vw;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.12);
+  background: #fff;
+  padding: 12px 20px;
+  /* ...autres styles */
+}
+
+@media (max-width: 900px) {
+  .cart {
+    width: 100vw;
+    left: 0;
+    right: 0;
+    top: unset;
+    bottom: 0;
+    height: auto;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+  /* ... */
+}
+
+
+
+
+    /* --- Rendre tout responsive de base --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Mobile First --- */
+.container, main, section {
+  width: 96%;
+  margin: auto;
+}
+
+/* --- Tablette (iPad ~ 768px) --- */
+@media (min-width: 600px) {
+  .container, main, section {
+    width: 90%;
+  }
+}
+
+/* --- Desktop (ordi) --- */
+@media (min-width: 900px) {
+  .container, main, section {
+    width: 70%;
+    max-width: 1200px;
+  }
+}
+
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -124,6 +190,13 @@
   z-index: 1;
 }
 
+@media (max-width: 900px) {
+  main {
+    padding-bottom: 140px !important;
+  }
+}
+
+
 .category span {
   position: relative;
   z-index: 2;
@@ -240,7 +313,31 @@
   user-select: none;
 }
 
-    }
+
+  @media (max-width: 900px) {
+  main,
+  .items,
+  .categories,
+  .container,
+  body {
+    padding-bottom: 160px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-bottom: 200px !important; /* Mets la valeur en pixels supérieure à la hauteur maximale de ton panier */
+  }
+  .items {
+    padding-bottom: 80px !important;  /* Optionnel pour renforcer si tes options sont dans .items */
+  }
+}
+
+
+}
+
+
+    
   </style>
 </head>
 <body>
@@ -259,8 +356,8 @@
     <h3>Mon Panier</h3>
     <ul id="cartList"></ul>
     <p><strong>Total :</strong> <span id="total">0.00€</span></p>
-    <button onclick="validerCommande()">Validerrr la commande</button>
-    <button onclick="resetCart()" style="margin-top: 0.5rem; background: #dc3545;">Vider le panier</button>
+    <button onclick="validerCommande()">Valider la commande</button>
+    <button onclick="resetCart()" style="margin-top: 0.5rem; background: red;">Vider le panier</button>
 
   </aside>
 
